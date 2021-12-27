@@ -28,7 +28,7 @@ public class ViewData extends RecyclerView.Adapter<ViewData.VH> {
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.rc_vw_item,parent,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.rc_vw_item,parent.findViewById(R.id.idRvWeather),false);
 
         return new VH(view);
     }
@@ -39,7 +39,11 @@ public class ViewData extends RecyclerView.Adapter<ViewData.VH> {
         holder.cdtv2.setText(myClassList.get(position).getCondition().getText());
         holder.cdtv3.setText(myClassList.get(position).getTemp_c()+"°C");
         holder.cdtv4.setText(myClassList.get(position).getTemp_f()+"°F");
-        Glide.with(context).asBitmap().load(myClassList.get(position).getCondition().getIcon()).into(holder.cdiv);
+
+
+        String url = myClassList.get(position).getCondition().getIcon();
+
+        Glide.with(context).load(url).into(holder.cdiv);
     }
 
     @Override

@@ -51,6 +51,7 @@ public class MyClass {
         return alerts;
     }
 
+
     public class Location{
 
 
@@ -126,7 +127,7 @@ public class MyClass {
 
         public Condition(String text, String icon) {
             this.text = text;
-            this.icon = "https:"+icon;
+            this.icon = icon;
         }
 
         public String getText() {
@@ -138,7 +139,7 @@ public class MyClass {
         }
 
         public String getIcon() {
-            return icon;
+            return "https:"+icon;
         }
     }
     public class Current{
